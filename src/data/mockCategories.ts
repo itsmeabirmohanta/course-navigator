@@ -2,10 +2,10 @@ export interface Course {
   id: string;
   categoryId: string;
   name: string;
-  courseCode: string;
+  courseCode: string;   // "—" for open-minor placeholder slots
   credits: number;
-  term: number;       // 1–8 (academic term across all years)
-  yearLabel: string;  // e.g. "Year 1 Sem 1"
+  term: number;         // 1–8 (academic term across all years)
+  yearLabel: string;    // e.g. "Year 1 Sem 1"
   L: number;
   T: number;
   P: number;
@@ -30,108 +30,160 @@ const c = (id: string, catId: string, name: string, code: string, cr: number, te
   id, categoryId: catId, name, courseCode: code, credits: cr, term, yearLabel: getTermLabel(term), L, T, P,
 });
 
+/* ── P132 · B.Tech CSE — Cloud Computing / Engineering Minor ── */
+
 export const mockCategories: Category[] = [
+  /* ── 1. Programming Courses (PROG) ── 7 courses · 26 credits ── */
   {
-    id: "cat-1", name: "Core Computing", code: "CC", colorKey: "purple", maxCredits: 18,
+    id: "cat-1", name: "Programming Courses", code: "PROG", colorKey: "purple", maxCredits: 26,
     courses: [
-      c("cc-1","cat-1","Computer Programming","CSC 101",4,1,3,0,2),
-      c("cc-2","cat-1","Data Structures & Algorithms","CSC 201",4,3,3,1,2),
-      c("cc-3","cat-1","Operating Systems","CSC 303",3,4,3,0,1),
-      c("cc-4","cat-1","Computer Networks","CSC 305",3,5,2,1,1),
-      c("cc-5","cat-1","Software Engineering","CSC 309",3,6,2,1,1),
-      c("cc-6","cat-1","Compiler Design","CSC 311",3,7,2,1,1),
+      c("prog-1","cat-1","Computer Programming","CSE111",4,1,3,0,2),
+      c("prog-2","cat-1","Internet Programming","CSE326",3,1,2,0,2),
+      c("prog-3","cat-1","Problem Solving with C","CSE101",4,2,3,0,2),
+      c("prog-4","cat-1","Object-Oriented Programming with C++","CSE121",4,2,3,0,2),
+      c("prog-5","cat-1","Data Structures & Algorithms","CSE202",4,3,3,0,2),
+      c("prog-6","cat-1","Object-Oriented Programming with Java","CSE205",4,3,3,0,2),
+      c("prog-7","cat-1","Programming in Python","CSE310",3,4,2,0,2),
     ],
   },
+
+  /* ── 2. Technology Courses (TECH) ── 16 courses · 43 credits ── */
   {
-    id: "cat-2", name: "Mathematics & Logic", code: "ML", colorKey: "charcoal", maxCredits: 12,
+    id: "cat-2", name: "Technology Courses", code: "TECH", colorKey: "blue", maxCredits: 43,
     courses: [
-      c("ml-1","cat-2","Calculus & Linear Algebra","MTH 101",3,1,3,1,0),
-      c("ml-2","cat-2","Discrete Mathematics","MTH 201",3,2,3,1,0),
-      c("ml-3","cat-2","Numerical Methods","MTH 301",3,3,2,1,0),
-      c("ml-4","cat-2","Probability & Statistics","MTH 401",3,5,2,1,0),
+      c("tech-1", "cat-2","Introduction to Computer Science & IT","INT108",3,1,2,0,2),
+      c("tech-2", "cat-2","Software Engineering","CSE320",3,2,2,0,2),
+      c("tech-3", "cat-2","Database Management Systems","INT306",3,2,2,0,2),
+      c("tech-4", "cat-2","Computer Networks","CSE306",3,3,2,0,2),
+      c("tech-5", "cat-2","Theory of Computation","CSE307",2,3,2,0,0),
+      c("tech-6", "cat-2","Compiler Design","CSE423",3,3,2,0,2),
+      c("tech-7", "cat-2","Cloud Computing Fundamentals","INT335",3,3,2,0,2),
+      c("tech-8", "cat-2","Computer Organization & Architecture","CSE211",3,4,2,0,2),
+      c("tech-9", "cat-2","Operating Systems","CSE316",3,4,2,0,2),
+      c("tech-10","cat-2","Algorithm Design & Analysis","CSE325",3,4,2,0,2),
+      c("tech-11","cat-2","Web Application Development","INT428",3,4,2,0,2),
+      c("tech-12","cat-2","Machine Learning","CSE333",3,5,2,0,2),
+      c("tech-13","cat-2","Information Security","CSE343",2,5,2,0,0),
+      c("tech-14","cat-2","Software Testing & Quality Assurance","CSE322",2,6,2,0,0),
+      c("tech-15","cat-2","Artificial Intelligence","CSE435",2,8,2,0,0),
+      c("tech-16","cat-2","Industrial Project","INT411",2,8,0,0,4),
     ],
   },
+
+  /* ── 3. Basic Science (BSC) ── 9 courses · 25 credits ── */
   {
-    id: "cat-3", name: "Systems & Architecture", code: "SA", colorKey: "blue", maxCredits: 12,
+    id: "cat-3", name: "Basic Science", code: "BSC", colorKey: "charcoal", maxCredits: 25,
     courses: [
-      c("sa-1","cat-3","Digital Logic Design","CSC 121",3,2,2,0,2),
-      c("sa-2","cat-3","Microprocessor Systems","CSC 321",3,4,2,0,2),
-      c("sa-3","cat-3","Embedded Systems","CSC 323",3,5,2,0,2),
-      c("sa-4","cat-3","Cloud Computing","CSC 327",3,7,2,0,2),
+      c("bsc-1","cat-3","Mathematics I — Calculus & Differential Equations","MTH165",3,1,3,1,0),
+      c("bsc-2","cat-3","Applied Chemistry","CHE110",3,1,2,0,2),
+      c("bsc-3","cat-3","Basic Electrical Engineering","ECE249",3,1,2,0,2),
+      c("bsc-4","cat-3","Electrical Workshop Practice","ECE279",2,1,0,0,4),
+      c("bsc-5","cat-3","Applied Physics","PHY110",3,2,2,0,2),
+      c("bsc-6","cat-3","Engineering Graphics & Design","MEC136",3,2,1,0,4),
+      c("bsc-7","cat-3","Mathematics II — Linear Algebra & Complex Analysis","MTH166",3,2,3,1,0),
+      c("bsc-8","cat-3","Probability & Statistics","MTH401",3,3,3,0,0),
+      c("bsc-9","cat-3","Discrete Mathematics","MTH302",2,4,2,0,0),
     ],
   },
+
+  /* ── 4. Engineering Minor — Cloud Computing (EM) ── 6 courses · 18 credits ── */
   {
-    id: "cat-4", name: "AI & Machine Learning", code: "AI", colorKey: "orange", maxCredits: 12,
+    id: "cat-4", name: "Engineering Minor", code: "EM", colorKey: "orange", maxCredits: 18,
     courses: [
-      c("ai-1","cat-4","Intro to AI","CSC 241",3,3,2,1,1),
-      c("ai-2","cat-4","Machine Learning","CSC 343",4,6,2,1,2),
-      c("ai-3","cat-4","Natural Language Processing","CSC 345",3,7,2,0,2),
-      c("ai-4","cat-4","Computer Vision","CSC 347",3,8,2,0,2),
+      c("em-1","cat-4","Cloud Infrastructure & Services","INT330",3,4,2,0,2),
+      c("em-2","cat-4","Cloud-Native Application Development","INT362",3,5,2,0,2),
+      c("em-3","cat-4","Virtualization & Container Technology","INT363",3,5,2,0,2),
+      c("em-4","cat-4","DevOps Engineering","INT364",3,6,2,0,2),
+      c("em-5","cat-4","Cloud Security & Governance","INT327",3,6,2,0,2),
+      c("em-6","cat-4","Cloud Architecture & Design Patterns","INT328",3,7,2,0,2),
     ],
   },
+
+  /* ── 5. Open Minor (OEM) ── 4 courses · 9 credits ── */
   {
-    id: "cat-5", name: "Cybersecurity", code: "CS", colorKey: "red", maxCredits: 9,
+    id: "cat-5", name: "Open Minor", code: "OEM", colorKey: "teal", maxCredits: 9,
     courses: [
-      c("cs-1","cat-5","Information Security","CSC 351",3,5,2,1,1),
-      c("cs-2","cat-5","Cryptography","CSC 353",3,6,2,1,0),
-      c("cs-3","cat-5","Ethical Hacking","CSC 355",3,7,1,0,3),
+      c("oem-1","cat-5","Open Minor Elective I","—",2,5,2,0,0),
+      c("oem-2","cat-5","Open Minor Elective II","—",2,6,2,0,0),
+      c("oem-3","cat-5","Open Minor Elective III","—",2,7,2,0,0),
+      c("oem-4","cat-5","Open Minor Elective IV","—",3,8,2,0,2),
     ],
   },
+
+  /* ── 6. Language Courses (LCS) ── 2 courses · 6 credits ── */
   {
-    id: "cat-6", name: "Web & Mobile Dev", code: "WM", colorKey: "yellow", maxCredits: 9,
+    id: "cat-6", name: "Language Courses", code: "LCS", colorKey: "navy", maxCredits: 6,
     courses: [
-      c("wm-1","cat-6","Web Development Fundamentals","CSC 161",3,2,1,0,3),
-      c("wm-2","cat-6","Advanced Web Development","CSC 361",3,4,1,0,3),
-      c("wm-3","cat-6","Mobile App Development","CSC 363",3,6,1,0,3),
+      c("lcs-1","cat-6","Communication English","FRN601",3,2,3,0,0),
+      c("lcs-2","cat-6","Advanced English Communication","FRN602",3,3,3,0,0),
     ],
   },
+
+  /* ── 7. Capstone Project (PRJ) ── 2 courses · 10 credits ── */
   {
-    id: "cat-7", name: "Research & Innovation", code: "RI", colorKey: "navy", maxCredits: 12,
+    id: "cat-7", name: "Capstone Project", code: "PRJ", colorKey: "red", maxCredits: 10,
     courses: [
-      c("ri-1","cat-7","Research Methodology","CSC 371",3,5,3,1,0),
-      c("ri-2","cat-7","Technical Writing","CSC 373",2,6,2,0,0),
-      c("ri-3","cat-7","Final Year Project I","CSC 375",4,7,0,0,6),
-      c("ri-4","cat-7","Seminar","CSC 377",2,8,0,2,0),
+      c("prj-1","cat-7","Capstone Project I","CSE339",2,7,0,0,4),
+      c("prj-2","cat-7","Capstone Project II","CSE439",8,8,0,0,16),
     ],
   },
+
+  /* ── 8. Community Project (PRC) ── 1 course · 2 credits ── */
   {
-    id: "cat-8", name: "Electives — Computing", code: "EC", colorKey: "green", maxCredits: 9,
+    id: "cat-8", name: "Community Project", code: "PRC", colorKey: "green", maxCredits: 2,
     courses: [
-      c("ec-1","cat-8","Game Development","CSC 381",3,4,1,0,3),
-      c("ec-2","cat-8","IoT Systems","CSC 383",3,5,2,0,2),
-      c("ec-3","cat-8","Blockchain Technology","CSC 385",3,6,2,0,2),
-      c("ec-4","cat-8","Quantum Computing Intro","CSC 387",3,8,3,0,0),
+      c("prc-1","cat-8","Community Development Project","GEN231",2,3,0,0,4),
     ],
   },
+
+  /* ── 9. Engineering Science (ESC) ── 1 course · 3 credits ── */
   {
-    id: "cat-9", name: "Electives — General", code: "EG", colorKey: "teal", maxCredits: 6,
+    id: "cat-9", name: "Engineering Science", code: "ESC", colorKey: "cyan", maxCredits: 3,
     courses: [
-      c("eg-1","cat-9","Entrepreneurship","GNS 101",2,1,2,0,0),
-      c("eg-2","cat-9","Communication Skills II","GNS 201",2,2,2,0,0),
-      c("eg-3","cat-9","Peace & Conflict Studies","GNS 301",2,3,2,0,0),
+      c("esc-1","cat-9","Environmental Science & Engineering","PES390",3,6,3,0,0),
     ],
   },
+
+  /* ── 10. Summer Training (TCS) ── 1 course · 3 credits ── */
   {
-    id: "cat-10", name: "Industrial Training", code: "IT", colorKey: "gold", maxCredits: 6,
+    id: "cat-10", name: "Summer Training", code: "TCS", colorKey: "gold", maxCredits: 3,
     courses: [
-      c("it-1","cat-10","SIWES I","CSC 291",3,4,0,0,6),
-      c("it-2","cat-10","SIWES II","CSC 391",3,6,0,0,6),
+      c("tcs-1","cat-10","Summer Industrial Training","CSE408",3,5,0,0,6),
     ],
   },
+
+  /* ── 11. Department Elective (DE) ── 1 course · 2 credits ── */
   {
-    id: "cat-11", name: "Data Science", code: "DS", colorKey: "cyan", maxCredits: 9,
+    id: "cat-11", name: "Department Elective", code: "DE", colorKey: "slate", maxCredits: 2,
     courses: [
-      c("ds-1","cat-11","Data Mining","CSC 401",3,5,2,0,2),
-      c("ds-2","cat-11","Data Visualization","CSC 403",3,6,1,1,2),
-      c("ds-3","cat-11","Big Data Analytics","CSC 405",3,7,2,0,2),
+      c("de-1","cat-11","Department Elective","CSE393",2,7,2,0,0),
     ],
   },
+
+  /* ── 12. Seminar (SMN) ── 1 course · 1 credit ── */
   {
-    id: "cat-12", name: "Professional Practice", code: "PP", colorKey: "slate", maxCredits: 6,
+    id: "cat-12", name: "Seminar", code: "SMN", colorKey: "yellow", maxCredits: 1,
     courses: [
-      c("pp-1","cat-12","IT Law & Ethics","CSC 411",2,7,2,0,0),
-      c("pp-2","cat-12","Project Management","CSC 413",2,8,2,0,0),
-      c("pp-3","cat-12","Career Development","CSC 415",2,8,1,1,0),
+      c("smn-1","cat-12","Technical Seminar","CSE496",1,7,0,0,2),
+    ],
+  },
+
+  /* ── 13. Aptitude Elective (EEA) ── 1 course · 3 credits ── */
+  {
+    id: "cat-13", name: "Aptitude Elective", code: "EEA", colorKey: "rose", maxCredits: 3,
+    courses: [
+      c("eea-1","cat-13","Quantitative Aptitude & Reasoning","PEA306",3,5,3,0,0),
+    ],
+  },
+
+  /* ── 14. Pathway Courses (PWE) ── 4 courses · 13 credits ── */
+  {
+    id: "cat-14", name: "Pathway Courses", code: "PWE", colorKey: "lime", maxCredits: 13,
+    courses: [
+      c("pwe-1","cat-14","Professional Enhancement Programme","PEA305",3,4,3,0,0),
+      c("pwe-2","cat-14","Pathway Elective I — Cloud Architecture","CSE332",3,5,2,0,2),
+      c("pwe-3","cat-14","Pathway Elective II — DevOps Tools","CSE334",4,6,3,0,2),
+      c("pwe-4","cat-14","Pathway Elective III — Data Analytics","INT416",3,8,2,0,2),
     ],
   },
 ];

@@ -20,6 +20,8 @@ const colorMap: Record<string, string> = {
   gold: "#f59e0b",
   cyan: "#06b6d4",
   slate: "#64748b",
+  rose: "#f43f5e",
+  lime: "#84cc16",
 };
 
 const CreditMeter = ({ used, max, colorKey, size = "sm" }: CreditMeterProps) => {

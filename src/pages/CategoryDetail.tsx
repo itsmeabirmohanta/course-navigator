@@ -25,6 +25,8 @@ const bgMap: Record<string, string> = {
   gold: "bg-amber-50",
   cyan: "bg-cyan-50",
   slate: "bg-slate-100",
+  rose: "bg-rose-50",
+  lime: "bg-lime-50",
 };
 
 const textMap: Record<string, string> = {
@@ -40,6 +42,8 @@ const textMap: Record<string, string> = {
   gold: "text-amber-600",
   cyan: "text-cyan-600",
   slate: "text-slate-600",
+  rose: "text-rose-600",
+  lime: "text-lime-600",
 };
 
 const CategoryDetail = () => {
