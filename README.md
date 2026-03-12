@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# Course Navigator
 
-## Project info
+An academic course planning application for B.Tech students to organize their degree requirements, select courses across categories, and manage credits — all in one place.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Category-based course selection** — Browse courses grouped by Programming, Technology, Basic Science, and Engineering Minor
+- **Credit tracking** — Visual credit meter showing used vs. allowed credits per category
+- **EduRev options** — Configure achievement details, upload documents, and track status for each course
+- **Term-based organization** — Courses organized by year and semester with status indicators
+- **Preview & finalize** — Review complete selections before locking them in
+- **Persistent state** — Selections saved to localStorage across sessions
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) — build tool
+- [Tailwind CSS](https://tailwindcss.com/) — styling
+- [shadcn/ui](https://ui.shadcn.com/) — component library
+- [React Router](https://reactrouter.com/) — routing
+- [React Query](https://tanstack.com/query) — state management
+- [Framer Motion](https://www.framer.com/motion/) — animations
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- [Node.js](https://nodejs.org/) (v18+)
+- npm
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/<your-username>/course-navigator.git
+cd course-navigator
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Development
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
 
-**Use GitHub Codespaces**
+```sh
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Run Tests
 
-## What technologies are used for this project?
+```sh
+npm test
+```
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/       # UI components (layout, categories, shared, etc.)
+├── context/          # React context providers
+├── data/             # Mock data and type definitions
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+├── pages/            # Route-level page components
+└── test/             # Test setup and test files
+```
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Configured for [Netlify](https://www.netlify.com/) out of the box — see [netlify.toml](netlify.toml).
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+[MIT](LICENSE)

@@ -1,8 +1,15 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "course-navigator",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Academic course planning app for B.Tech students to organize degree requirements and manage credits.",
+  "author": "Abir Mahanta",
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<your-username>/course-navigator.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
