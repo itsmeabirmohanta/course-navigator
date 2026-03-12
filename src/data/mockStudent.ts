@@ -15,7 +15,7 @@ export const mockStudent: Student = {
   firstName: "Abir",
   school: "School of Computer Science & Engineering",
   program: "B.Tech CSE — Cloud Computing / Engineering Minor (P132)",
-  year: 3,
+  year: 1,
   term: 2,
   enrollmentId: "CSE/2022/0891",
 };
